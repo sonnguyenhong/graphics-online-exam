@@ -1,4 +1,4 @@
-const path = require('node:path');
+const path = require('path');
 const QuestionsModel = require('../models/questions.model');
 const QuestionService = require('../services/questions.service');
 const { Worker, isMainThread, parentPort, workerData } = require('node:worker_threads');

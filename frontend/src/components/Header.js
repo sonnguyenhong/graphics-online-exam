@@ -1,17 +1,33 @@
+import { useNavigate } from "react-router-dom";
 import instance from "../configs/axios";
+import { useAnsweredQuestionContext } from "../context/AnsweredQuestionContext";
 
 function Header() {
+    const navigate = useNavigate();
+    const { setAnsweredQuestions } = useAnsweredQuestionContext();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const answeredQuestions = JSON.parse(localStorage.getItem('answeredQuestions'));
         console.log(answeredQuestions);
-        instance.post('/questions/compute-result', {
-            answeredQuestions: answeredQuestions,
-        }).then(result => {
-            console.log(result.data);
-        }).catch(err => {
-            console.log(err.message);
-        })
+        if(answeredQuestions) {
+            instance.post('/questions/compute-result', {
+                answeredQuestions: answeredQuestions,
+            }).then(result => {
+                console.log(result.data);
+                navigate('/result', {
+                    state: {
+                        result: result.data.results,
+                    }
+                });
+                localStorage.removeItem('answeredQuestions');
+                setAnsweredQuestions([]);
+            }).catch(err => {
+                console.log(err.message);
+            })
+        } else {
+            console.log("You haven't answered any question");
+        }
     }
 
     return (

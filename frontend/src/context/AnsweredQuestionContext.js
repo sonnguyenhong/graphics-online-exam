@@ -26,7 +26,7 @@ export function AnsweredQuestionProvider({ children }) {
     }
 
     return (
-        <AnsweredQuestionContext.Provider value={{ answeredQuestions, updateAnsweredQuestions }}>
+        <AnsweredQuestionContext.Provider value={{ answeredQuestions, setAnsweredQuestions, updateAnsweredQuestions }}>
             {children}
         </AnsweredQuestionContext.Provider>
     );

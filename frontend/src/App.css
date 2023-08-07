@@ -77,6 +77,11 @@
   margin-top: 180px;
 }
 
+.Result {
+  margin-top: 180px;
+  text-align: center;
+}
+
 .Header_copyright {
   margin-top: 10px;
 }
@@ -87,6 +92,22 @@
   margin: 10px;
   border: solid #aaa;
   border-radius: 10px;
+}
+
+.Return_Btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #aa261b;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+.Return_Btn:hover {
+  opacity: 0.8;
 }
 
 .Question_Content {

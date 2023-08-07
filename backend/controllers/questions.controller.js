@@ -1,7 +1,7 @@
 const path = require('path');
 const QuestionsModel = require('../models/questions.model');
 const QuestionService = require('../services/questions.service');
-const { Worker, isMainThread, parentPort, workerData } = require('node:worker_threads');
+const { Worker, isMainThread, parentPort, workerData } = require('worker_threads');
 // const { computeResult } = require('../helpers/computeResult');
 
 const getAllQuestion = async (req, res, next) => {

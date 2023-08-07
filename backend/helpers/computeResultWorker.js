@@ -1,6 +1,6 @@
 const QuestionsModel = require('../models/questions.model');
 const mongoose = require('mongoose');
-const { Worker, isMainThread, parentPort, workerData } = require('node:worker_threads');
+const { Worker, isMainThread, parentPort, workerData } = require('worker_threads');
 
 const chunk = workerData.chunk;
 const questions = JSON.parse(workerData.questions);
